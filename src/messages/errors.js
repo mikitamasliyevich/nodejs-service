@@ -8,7 +8,7 @@ function invalidToken(res) {
 
   function notFound(res) {
     res.writeHead(HTTP_STATUS_CODES.NOT_FOUND, DEFAULT_HEADERS);
-    res.end(JSON.stringify({ message: 'User not found' }));
+    res.end(JSON.stringify({ message: 'Not found' }));
   }
 
   function badRequest(res){
