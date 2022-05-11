@@ -27,7 +27,7 @@ class UserController {
 
     static async getUserById(req, res) {
            try {
-        const user = await UserService.getOne(req.params.id)
+        const user = await UserService.getOne(req.params.userId)
         if (!user) {
             return notFound(res)
         } 
@@ -40,7 +40,7 @@ class UserController {
 
     static async updateUser(req, res) {
         try {
-            const updatedUser = await UserService.update(res, req.body, req.params.id);
+            const updatedUser = await UserService.update(res, req.body, req.params.userId);
              return res.json(updatedUser);
         } catch (e) {
             return invalidToken(res)
@@ -49,7 +49,7 @@ class UserController {
 
     static async deleteUser(req, res) {
         try {
-            const deletedUser = await UserService.delete(res, req.params.id);
+            const deletedUser = await UserService.delete(res, req.params.userId);
             successfulDeleted(res)
             return res.end(JSON.stringify(deletedUser));
         } catch (e) {

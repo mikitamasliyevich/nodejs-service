@@ -3,9 +3,11 @@ const BoardController = require('./board.controller');
 
 router.post('/', BoardController.createBoard)
 router.get('/', BoardController.getAllBoards)
-router.get('/:id', BoardController.getBoardById)
-router.put('/:id', BoardController.updateBoard)
-router.delete('/:id', BoardController.deleteBoard)
+router.get('/:boardId', BoardController.getBoardById)
+router.put('/:boardId', BoardController.updateBoard)
+router.delete('/:boardId', BoardController.deleteBoard)
+
+
 
 
 

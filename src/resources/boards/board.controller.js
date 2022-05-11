@@ -27,8 +27,7 @@ class BoardController {
 
     static async getBoardById(req, res) {
         try {
-     const board = await BoardService.getOne( req.params.id)
-     console.log('board', board)
+     const board = await BoardService.getOne( req.params.boardId )
      if (!board) {
          return notFound(res)
      } 
@@ -41,7 +40,7 @@ class BoardController {
 
  static async updateBoard(req, res) {
     try {
-        const updatedBoard = await BoardService.update(res, req.body, req.params.id);
+        const updatedBoard = await BoardService.update(res, req.body, req.params.boardId);
          return res.json(updatedBoard);
     } catch (e) {
         return invalidToken(res)
@@ -50,16 +49,13 @@ class BoardController {
 
 static async deleteBoard(req, res) {
     try {
-        const deletedBoard = await BoardService.delete(res, req.params.id);
+        const deletedBoard = await BoardService.delete(res, req.params.boardId);
         return res.end(JSON.stringify(deletedBoard));
     } catch (e) {
         return invalidToken(res)
     }
 }
 }
-
-
-
 
 
 module.exports = BoardController;

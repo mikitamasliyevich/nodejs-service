@@ -5,7 +5,8 @@ const { badRequest, notFound } = require('../../messages/errors');
 
 const dataWay = path.resolve("./data/boards.json")
 // eslint-disable-next-line import/no-dynamic-require
-const boardData = require(dataWay);
+const boardData = require(dataWay)
+
 
 
 class BoardService {
@@ -27,8 +28,8 @@ class BoardService {
     }
 
     static async getOne(id) {
-            const user = await boardData.find((p) => p.id === id);
-            return user
+            const board = await boardData.find((p) => p.id === id);
+            return board
   
    }
 
